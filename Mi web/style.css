@@ -1,0 +1,353 @@
+/* --------- Base --------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* --------- Usuario activo --------- */
+#usuarioActivoContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  background-color: #f5f5f5;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+#bienvenidaUsuario {
+  color: #333;
+  font-weight: bold;
+  animation: aparecer 1s ease-in-out;
+}
+
+#cerrarSesionBtn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#cerrarSesionBtn:hover {
+  background-color: #c9302c;
+}
+
+/* --------- Navegación --------- */
+nav {
+  background-color: #2c3e50;
+}
+
+nav a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 10px;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+/* --------- Secciones --------- */
+main {
+  padding: 2rem;
+}
+
+.seccion {
+  margin-bottom: 3rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  animation: fadeIn 0.8s ease-in-out both;
+}
+
+/* --------- Formularios --------- */
+form input {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+form button:hover {
+  transform: scale(1.05);
+  background-color: #2ecc71;
+}
+
+/* --------- Eventos --------- */
+.evento {
+  background-color: #ecf0f1;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  animation: slideIn 0.8s forwards;
+}
+
+.evento button {
+  background-color: #2980b9;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.evento button:hover {
+  background-color: #3498db;
+  transform: scale(1.05);
+}
+
+/* --------- Lista de Entradas --------- */
+#listaEntradas .entradaItem {
+  background-color: #dff9fb;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-left: 4px solid #22a6b3;
+  border-radius: 5px;
+}
+
+/* --------- Footer --------- */
+footer {
+  text-align: center;
+  background: #34495e;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* --------- Animaciones --------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------- Responsive --------- */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    background-color: #2c3e50;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    text-align: right;
+    padding: 0.5rem 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  form input {
+    width: 90%;
+  }
+
+  footer {
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+/* Modal de confirmación */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-contenido {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 80%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  animation: slideDown 0.4s ease;
+}
+
+.modal-contenido h2 {
+  color: #28a745;
+}
+
+.cerrar {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Animaciones */
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+ /* Botón de modo oscuro */
+#modoOscuroBtn {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#modoOscuroBtn:hover {
+  background-color: #333;
+}
+
+/* Estilos para modo oscuro */
+body.oscuro {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.oscuro .seccion {
+  background-color: #2e2e2e;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.oscuro header,
+body.oscuro footer {
+  background-color: #111;
+}
+
+body.oscuro nav a {
+  color: #f5f5f5;
+}
+
+body.oscuro .evento {
+  background-color: #3b3b3b;
+}
+
+body.oscuro #listaEntradas .entradaItem {
+  background-color: #444;
+  border-left: 4px solid #00cec9;
+}
+
+.modo-oscuro-btn {
+  background-color: #34495e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.modo-oscuro-btn:hover {
+  background-color: #2c3e50;
+}
+
+/* Estilo responsivo para el botón si el menú se colapsa */
+@media (max-width: 768px) {
+  .modo-oscuro-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* ======= Transiciones suaves al cambiar tema ======= */
+body,
+header,
+footer,
+.seccion,
+.evento,
+form input,
+form button,
+#listaEntradas .entradaItem,
+#usuarioActivoContainer,
+#cerrarSesionBtn,
+nav a {
+  transition: all 0.3s ease-in-out;
+}
